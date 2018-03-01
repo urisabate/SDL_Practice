@@ -1,10 +1,13 @@
 //using SDL and IO
 #include <iostream>
 #include <cstdio>
+#include <cmath>
 #include "SDL\include\SDL.h"
 
 #pragma comment(lib, "SDL/libx86/SDL2.lib")
 #pragma comment(lib, "SDL/libx86/SDL2main.lib")
+
+#define PI 3.14159
 
 using namespace std;
 
@@ -41,9 +44,10 @@ int main(int argc, char* argv[])
 			SDL_SetRenderDrawColor(renderer, 0, 125, 255, 255);
 			SDL_RenderClear(renderer);
 
-			//Drawing
-			SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-			SDL_Rect rect = { 50 + i,50 + i,200,200 };
+			//Drawing rectangle
+			int x = 0 + i, y = (SCREEN_HEIGHT / 2) + (cos(i / PI * 180)*100);
+			SDL_SetRenderDrawColor(renderer, 255,0, 0, 255);
+			SDL_Rect rect = { x,y,100,100 };
 			SDL_RenderFillRect(renderer, &rect);
 
 			//showing drawn
